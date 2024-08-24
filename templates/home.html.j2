@@ -1,0 +1,51 @@
+<p> Fill the Form </p>
+
+<form method="post">
+    <table>
+        <tr>
+            <td> Name </td>
+            <td><input type="text" name="uName" value="{{ request.form['uName'] if 'uName' in request.form else '' }}" required /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <ul>
+                    {% for e in errors['uName'] %}
+                        <li>{{ e }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td> Phone </td>
+            <td><input type="text" name="uPhone" value="{{ request.form['uPhone'] if 'uPhone' in request.form else '' }}" required minlength="10" /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <ul>
+                    {% for e in errors['uPhone'] %}
+                        <li>{{ e }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td> Email </td>
+            <td><input type="email" name="uEmail" value="{{ request.form['uEmail'] if 'uEmail' in request.form else '' }}" required /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <ul>
+                    {% for e in errors['uEmail'] %}
+                        <li>{{ e }}</li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><button type="submit"> Submit </button></td>
+        </tr>
+    </table>
+</form>
